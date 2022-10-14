@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About</title>
+    <link rel="stylesheet" href="./utils/css/about.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <section class="hero-section">
+
+        <header class="container hero-header">
+            <a href="index.html">
+                <img src="./utils/img/logo.png" alt="logo">
+            </a>
+            <ul class="hero-header-ul list-unstyled">
+                <li>
+                    <a class="hero-ul-a" href="menu.html">
+                    Menu
+                </a>
+                </li>
+                <li>
+                    <a class="hero-ul-a" href="news.html">
+                    News
+                </a>
+                </li>
+                <li>
+                    <a class="hero-ul-a" href="about.html">
+                    About us
+                </a>
+                </li>
+                <li>
+                    <a class="hero-ul-a" href="contact.html">
+                    Contact Us
+                </a>
+                </li>
+            </ul>
+            <a href="about.html" class="">
+                <button class="header-login-btn">
+                Log In
+            </button>
+            </a>
+        </header>
+    </section>
+    <section class="about-section">
+        <div class="about-container">
+            <h1 class="menu-heading text-center py-2">About Us</h1>
+            <div class="d-flex justify-content-center">
+                <img class="align-items-center mb-5" src="./utils/img/spoon.png" width="40" height="9" alt="spoon">
+            </div>
+
+            <p class="about-text">
+                A public eating establishment similar to a restaurant is mentioned in a 512 BC record from Ancient Egypt. It served only one dish, a plate of cereal, wild fowl, and onions.[6] A forerunner of the modern restaurant is the thermopolium, an establishment
+                in Ancient Greece and Ancient Rome that sold and served ready-to-eat food and beverages. These establishments were somewhat comparable to modern fast food restaurants. They were most often frequented by people who lacked private kitchens.
+                In the Roman Empire they were popular among residents of insulae.[7] In Pompeii, 158
+                <img src="/utils/img/about.jpg" class="py-4" alt="about"> thermopolia with service counters have been identified throughout the town. They were concentrated along the main axis of the town and the public spaces where they were frequented
+                by the locals.[8] The Romans also had the popina, a wine bar which in addition to a variety of wines offered a limited selection of simple foods such as olives, bread, cheese, stews, sausage, and porridge. The popinae were known as places
+                for the plebeians of the lower classes of Roman society to socialize. While some were confined to one standing room only, others had tables and stools and a few even had couches.[9][10] Another early forerunner of the restaurant was the
+                inn. Throughout the ancient world, inns were set up alongside roads to cater to people traveling between cities, offering lodging and food. Meals were typically served at a common table to guests. However, there were no menus or options
+
+            </p>
+        </div>
+    </section>
+
+    <section class="sub-section">
+        <div class="sub-container">
+            <h5 class="sub-heading">Newsletter</h5>
+            <h3 class="sub-main-heading">Subscribe to Our Newsletter</h3>
+            <p class="sub-text">And never miss latest Updates!</p>
+            <form id="sub_form" class="form">
+                <input id="sub_btn" class="sub-input" type="email" placeholder="Email Address...">
+                <button type="submit" class="sub-btn">
+                    Subscribe
+                </button>
+            </form>
+        </div>
+    </section>
+    <section class="footer-section">
+        <footer class="footer-container container">
+            <div class="footer-list">
+                <h3 class="footer-contact">Contact Us</h3>
+                <p class="footer-location">9 W 53rd St, London, NY 10019, UK</p>
+                <div class="d-flex flex-column">
+                    <a class="footer-tel" href="tel:998909534403">+1 212-344-1230</a>
+                    <a class="footer-tel" href="tel:998909534403">+1 212-555-1230</a>
+                </div>
+            </div>
+            <div class="footer-list">
+                <a href="#">
+                    <img src="./utils/img/logo.png" width="336" height="117" alt="logo">
+                </a>
+                <p class="footer-location" style="width: 438px; margin-top: 32px;">"The best way to find yourself is to lose yourself in the service of others.”</p>
+                <div class="footer-links">
+                    <div>
+
+                        <a href="https://facebook.com">
+                            <img src="./utils/img/u_facebook-f.png" alt="fb">
+                        </a>
+                    </div>
+                    <div>
+
+                        <a href="https://twitter.com">
+                            <img src="./utils/img/u_twitter-alt.png" alt="tw">
+                        </a>
+                    </div>
+                    <div>
+
+                        <a href="https://instagram.com">
+                            <img src="./utils/img/u_instagram.png" alt="insta">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-list">
+                <h3 class="footer-contact">Working Hours</h3>
+                <p class="footer-location" style="width: 154px;">Monday-Friday: 08:00 am -12:00 am</p>
+                <p class="footer-location" style="width: 154px;">Saturday-Sunday: 07:00am -11:00 pm</p>
+
+            </div>
+        </footer>
+        <p class="text-center footer-last">2022 Pop online. All Rights reserved.</p>
+    </section>
+
+    <script src="/utils/js/about.js"></script>
+
+    <script>
+        sub_form.onsubmit = async(e) => {
+            e.preventDefault()
+            let response = await fetch('https://eturkish.herokuapp.com/followers', {
+                method: "POST",
+                headers: {
+                    "Content-type": "Application/json"
+                },
+                body: JSON.stringify({
+                    email: sub_btn.value
+                })
+            })
+            sub_btn.value = ''
+            console.log(await response.json());
+        }
+    </script>
+</body>
+
+</html>
